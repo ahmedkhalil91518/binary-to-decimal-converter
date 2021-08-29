@@ -8,7 +8,6 @@ const converter = (num: string): number => {
   for (let i = 0; i < num.length; i++) {
     convertedNumber += Number(num[i]) * Math.pow(2, num.length - (i + 1));
   }
-  console.log(convertedNumber);
   return convertedNumber;
 };
 
@@ -23,7 +22,7 @@ function App() {
   return (
     <div>
       <BinaryInput callback={handleSetBinaryNumber} value={binaryNumber} />
-      <BinaryOutput value={binaryNumber}/>
+      <BinaryOutput value={String(converter(binaryNumber))}/>
     </div>
   );
 }
