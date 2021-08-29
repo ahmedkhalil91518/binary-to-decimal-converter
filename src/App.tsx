@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <BinaryInput callback={handleSetBinaryNumber} value={binaryNumber} />
+      <BinaryInput callback={handleSetBinaryNumber} />
       <BinaryOutput value={converter(binaryNumber)}/>
     </div>
   );

@@ -3,17 +3,15 @@ import { Form } from "react-bootstrap";
 
 interface Props {
     callback: ChangeEventHandler<any> | undefined,
-    value: any
 }
 
-const BinaryInput: FC<Props> = ({callback, value }) => {
+const BinaryInput: FC<Props> = ({callback }) => {
   return (
     <Form.Control
       size="lg"
       type="text"
       placeholder="Enter your binary number here"
       onChange={callback}
-      value={value}
     />
   );
 }
