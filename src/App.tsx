@@ -3,12 +3,12 @@ import "./App.scss";
 import BinaryInput from "./BinaryInput";
 import BinaryOutput from "./BinaryOutput";
 
-const converter = (num: string): number => {
+const converter = (num: string): string => {
   let convertedNumber = 0;
   for (let i = 0; i < num.length; i++) {
     convertedNumber += Number(num[i]) * Math.pow(2, num.length - (i + 1));
   }
-  return convertedNumber;
+  return String(convertedNumber);
 };
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <BinaryInput callback={handleSetBinaryNumber} value={binaryNumber} />
-      <BinaryOutput value={String(converter(binaryNumber))}/>
+      <BinaryOutput value={converter(binaryNumber)}/>
     </div>
   );
 }
