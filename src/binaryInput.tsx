@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 
 interface Props {
     callback: ChangeEventHandler<any> | undefined,
-    value: string
+    value: any
 }
 
 const BinaryInput: FC<Props> = ({callback, value }) => {

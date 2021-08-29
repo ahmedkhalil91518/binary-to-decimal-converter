@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.scss";
-import BinaryInput from "./binaryInput";
+import BinaryInput from "./BinaryInput";
+import BinaryOutput from "./BinaryOutput";
 
 const converter = (num: string): number => {
   let convertedNumber = 0;
@@ -22,6 +23,7 @@ function App() {
   return (
     <div>
       <BinaryInput callback={handleSetBinaryNumber} value={binaryNumber} />
+      <BinaryOutput value={binaryNumber}/>
     </div>
   );
 }
