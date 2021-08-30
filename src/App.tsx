@@ -28,7 +28,8 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="d-flex align-items-center justify-content-center flex-column wrapper">
+      <h1>Binary Converter</h1>
       <BinaryInput callback={handleSetBinaryNumber} />
       <BinaryOutput value={converter(binaryNumber)} />
     </div>

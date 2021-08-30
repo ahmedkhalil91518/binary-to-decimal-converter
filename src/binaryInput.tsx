@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 function BinaryInput(props: any) {
   const [validated, setValidated] = useState(false);
@@ -15,9 +15,8 @@ function BinaryInput(props: any) {
   };
 
   return (
-    <Form noValidate validated={validated}>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+    <Form noValidate validated={validated}  className="pt-5 pb-2">
+        <Form.Group  controlId="validationCustom01">
           <Form.Control
             required
             type="text"
@@ -26,7 +25,6 @@ function BinaryInput(props: any) {
             onChange={handleSubmit}
           />
         </Form.Group>
-      </Row>
     </Form>
   );
 }
