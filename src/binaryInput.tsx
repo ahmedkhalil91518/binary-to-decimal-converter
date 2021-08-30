@@ -1,18 +1,33 @@
-import React, { ChangeEventHandler, FC } from "react";
-import { Form } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 
-interface Props {
-    callback: ChangeEventHandler<any> | undefined,
-}
+function BinaryInput(props: any) {
+  const [validated, setValidated] = useState(false);
 
-const BinaryInput: FC<Props> = ({callback }) => {
+  const handleSubmit = (event: any) => {
+    const form = event.target;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+    props.callback(event);
+  };
+
   return (
-    <Form.Control
-      size="lg"
-      type="text"
-      placeholder="Enter your binary number here"
-      onChange={callback}
-    />
+    <Form noValidate validated={validated}>
+      <Row className="mb-3">
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Control
+            required
+            type="text"
+            placeholder="Binary Number"
+            pattern="^[0-1]*$"
+            onChange={handleSubmit}
+          />
+        </Form.Group>
+      </Row>
+    </Form>
   );
 }
 

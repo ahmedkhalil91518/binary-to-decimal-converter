@@ -4,11 +4,19 @@ import BinaryInput from "./BinaryInput";
 import BinaryOutput from "./BinaryOutput";
 
 const converter = (num: string): string => {
-  let convertedNumber = 0;
-  for (let i = 0; i < num.length; i++) {
-    convertedNumber += Number(num[i]) * Math.pow(2, num.length - (i + 1));
+  if (/^[0-1]*$/.test(num)) {
+    let convertedNumber = 0;
+    for (let i = 0; i < num.length; i++) {
+      convertedNumber += Number(num[i]) * Math.pow(2, num.length - (i + 1));
+    }
+    if (isNaN(convertedNumber)) {
+      return "please enter a valid binary number";
+    } else {
+      return String(convertedNumber);
+    }
+  } else {
+    return "please enter a valid binary number";
   }
-  return String(convertedNumber);
 };
 
 function App() {
@@ -22,7 +30,7 @@ function App() {
   return (
     <div>
       <BinaryInput callback={handleSetBinaryNumber} />
-      <BinaryOutput value={converter(binaryNumber)}/>
+      <BinaryOutput value={converter(binaryNumber)} />
     </div>
   );
 }
